@@ -1,4 +1,5 @@
 const booksContainer = document.querySelector(".books-container-inner");
+const newBookbtn = document.querySelector("#new-book");
 let myLibrary = [];
 
 function Book(title, author) {
@@ -28,3 +29,14 @@ const harryPotter = new Book("Harry Potter and the Goblet of Fire", "J.K. Rowlin
 const canterburyTales = new Book("The Canterbury Tales", "Chaucer");
 const byzantineState = new Book("The History of the Byzantine State", "George Ostrogrosky");
 const paradiseLost = new Book("Paradise Lost", "John Milton");
+
+newBookbtn.addEventListener("click", () => {
+    const newTitle = prompt("Add a new book title", "Treasure Island");
+    const newAuthor = prompt("Add the book's author", "Robert L. Stevenson");
+    addNewBook(newTitle, newAuthor);
+});
+
+function addNewBook(title, author) {
+    const userNewBook = new Book(title, author);
+}
+
