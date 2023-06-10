@@ -40,3 +40,5 @@ function addNewBook(title, author) {
     const userNewBook = new Book(title, author);
 }
 
+//Next need to create pop up form - see here on how to do so: https://www.w3docs.com/snippets/javascript/how-to-create-a-popup-form-using-javascript.html
+

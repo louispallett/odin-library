@@ -15,14 +15,34 @@ body {
 
 .left {
     grid-area: 1 / 1 / -1 / 2;
-    background-color: aliceblue;
+    background-color: rgb(28, 139, 236);
     display: grid;
     grid-template-rows: 1fr 2fr 2fr;
+    min-width: 200px;
+}
+
+.left-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    gap: 20px;
+    color: rgb(236, 28, 28);
+    border-bottom: 3px solid white;
+}
+
+.left-top > div {
+    background-color: white;
+    border-radius: 10px;
+    border: 3px solid rgb(28, 236, 28);
+    display: flex;
+    padding: 20px;
+    gap: 20px
 }
 
 .left-bottom {
     grid-row: 2 / -1;
-    background-color: rgb(134, 195, 248);
 }
 
 .top {
