@@ -1,5 +1,4 @@
 const booksContainer = document.querySelector(".books-container");
-const newBook = document.createElement("div");
 let myLibrary = [];
 
 function Book(title, author) {
@@ -16,7 +15,8 @@ Book.prototype.addToLibrary = function() {
 
 //Do we need a loop here? Time to write out some pseudo-code...
 Book.prototype.pushBook = function() {
-    newBook.textContent = this.title;
+    let newBook = document.createElement("div");
+    newBook.textContent = `${this.title} by ${this.author}`;
     booksContainer.appendChild(newBook);
 }
 
