@@ -7,6 +7,46 @@ body {
     padding: 0;
 }
 
-.books-container {
+.container-grid {
     display: grid;
+    grid-template: 1fr 2fr 2fr / 1fr 4fr;
+    height: 100%;
+}
+
+.left {
+    grid-area: 1 / 1 / -1 / 2;
+    background-color: aliceblue;
+    display: grid;
+    grid-template-rows: 1fr 2fr 2fr;
+}
+
+.left-bottom {
+    grid-row: 2 / -1;
+    background-color: rgb(134, 195, 248);
+}
+
+.top {
+    grid-area: 1 / 2 / 2 / -1;
+    background-color: antiquewhite;
+}
+
+.books-container {
+    background-color: azure;
+    grid-row: 2 / -1;
+}
+
+.books-container-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(auto-fit, minmax(50px, 1fr));
+    gap: 20px;
+    margin: 20px;
+}
+
+.books-container-inner > div {
+    border: 1px solid black;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
 }
