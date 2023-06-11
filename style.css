@@ -47,7 +47,6 @@ body {
 
 .top {
     grid-area: 1 / 2 / 2 / -1;
-    background-color: antiquewhite;
 }
 
 .new-book {
@@ -105,8 +104,9 @@ body {
 }
 
 .books-container {
-    background-color: azure;
     grid-row: 2 / -1;
+    background-image: url(images/banner.jpg);
+    background-size: cover;
 }
 
 .books-container-inner {
@@ -123,4 +123,5 @@ body {
     justify-content: flex-start;
     align-items: center;
     padding: 10px;
+    background-color: white;
 }
