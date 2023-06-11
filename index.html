@@ -10,13 +10,15 @@
 <body>
     <div class="container-grid">
         <div class="left">
-            <div class="left-top">
-                <div>
-                    <img src="images/library-icon.svg" alt="">
-                    <div>Odin Library</div>
-                </div>
+            <div class="left-top"></div>
+            <div class="left-bottom"></div>
+        </div>
+        <div class="top">
+            <div>
+                <img src="images/icon.svg" alt="">
+                <div>Odin Library</div>
             </div>
-            <div class="left-bottom">
+            <div>
                 <div class="openBtn">
                     <button class="openButton"id="new-book" onclick="openForm()">New Book</button>
                 </div>
@@ -24,10 +26,18 @@
                     <div class="form-popup" id="popupForm">
                         <form action="#" class="formContainer">
                             <div>Add a new book</div>
-                            <label for="title">Title</label>
-                            <input type="text" id="title" placeholder="Treasure Island">
-                            <label for="author">Author</label>
-                            <input type="text" id="author" placeholder="Robert L. Stevenson">
+                            <div>
+                                <div>
+                                    <label for="title">Title</label>
+                                </div>
+                                <input type="text" id="title" required placeholder="Treasure Island">
+                            </div>
+                            <div>
+                                <div>
+                                    <label for="author">Author</label>
+                                </div>
+                                <input type="text" id="author" required placeholder="Robert L. Stevenson">
+                            </div>
                             <button type="submit" class="btn" id="add-new-book">Add Book</button>
                             <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
                         </form>
@@ -35,7 +45,6 @@
                 </div>
             </div>
         </div>
-        <div class="top"></div>
         <div class="books-container">
             <div class="books-container-inner">
                 <!-- Books -->

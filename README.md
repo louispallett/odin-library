@@ -2,5 +2,5 @@
 
 Acknowledgements
 
-library-icon.svg: Hilmy Abiyyu Asad, freeicons.io: https://freeicons.io/university-3/library-stack-of-books-books-book-education-icon-511804
-banner.jpg: Ed Robertson, unsplash.com: https://unsplash.com/photos/eeSdJfLfx1A
+library-icon.svg: ToZIcon, freeicons.io: https://freeicons.io/e-learning-and-education-icon-set-7/bookstack-study-three-educative-book-stack-studies-books-knowledge-icon-407965library-stack-of-books-books-book-education-icon-511804
+banner.jpg: Johannes Mändle, unsplash.com: https://unsplash.com/photos/Y7pijhr5oqU
