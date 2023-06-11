@@ -140,6 +140,7 @@ body {
     min-width: 1000px;
     background: var(--background-gradient);
     padding-top: 30px;
+    overflow-y: scroll;
 }
 
 .books-container-inner {
