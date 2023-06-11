@@ -36,6 +36,8 @@ function addNewBook(title, author) {
 
 function openForm() {
     document.getElementById("popupForm").style.display = "block";
+    newAuthorText.value = "";
+    newTitleText.value = "";
 }
 
 function closeForm() {
