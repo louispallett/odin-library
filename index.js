@@ -1,5 +1,4 @@
 const booksContainer = document.querySelector(".books-container-inner");
-const newBookbtn = document.querySelector("#new-book");
 let myLibrary = [];
 
 function Book(title, author) {
@@ -21,7 +20,6 @@ Book.prototype.pushBook = function() {
     booksContainer.appendChild(newBook);
 }
 
-
 const warAndPeace = new Book ("War and Peace", "Leo Tolstoy");
 const dune = new Book ("Dune", "Frank Herbert");
 const theAeneid = new Book("The Aeneid", "Virgil");
@@ -30,15 +28,27 @@ const canterburyTales = new Book("The Canterbury Tales", "Chaucer");
 const byzantineState = new Book("The History of the Byzantine State", "George Ostrogrosky");
 const paradiseLost = new Book("Paradise Lost", "John Milton");
 
-newBookbtn.addEventListener("click", () => {
-    const newTitle = prompt("Add a new book title", "Treasure Island");
-    const newAuthor = prompt("Add the book's author", "Robert L. Stevenson");
-    addNewBook(newTitle, newAuthor);
-});
-
 function addNewBook(title, author) {
     const userNewBook = new Book(title, author);
 }
 
 //Next need to create pop up form - see here on how to do so: https://www.w3docs.com/snippets/javascript/how-to-create-a-popup-form-using-javascript.html
 
+function openForm() {
+    document.getElementById("popupForm").style.display = "block";
+}
+
+function closeForm() {
+    document.getElementById("popupForm").style.display = "none";
+}
+
+const submitBookBtn = document.querySelector("#add-new-book");
+const newAuthorText = document.querySelector("#author");
+const newTitleText = document.querySelector("#title");
+
+submitBookBtn.addEventListener("click", () => {
+    const newAuthor = newAuthorText.value;
+    const newTitle = newTitleText.value;
+    addNewBook(newTitle, newAuthor);
+    closeForm();
+})

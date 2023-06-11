@@ -17,12 +17,25 @@
                 </div>
             </div>
             <div class="left-bottom">
-                <button id="new-book">New Book</button>
+                <div class="openBtn">
+                    <button class="openButton"id="new-book" onclick="openForm()">New Book</button>
+                </div>
+                <div class="new-book" id="pop-up">
+                    <div class="form-popup" id="popupForm">
+                        <form action="#" class="formContainer">
+                            <div>Add a new book</div>
+                            <label for="title">Title</label>
+                            <input type="text" id="title" placeholder="Treasure Island">
+                            <label for="author">Author</label>
+                            <input type="text" id="author" placeholder="Robert L. Stevenson">
+                            <button type="submit" class="btn" id="add-new-book">Add Book</button>
+                            <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="top">
-
-        </div>
+        <div class="top"></div>
         <div class="books-container">
             <div class="books-container-inner">
                 <!-- Books -->
