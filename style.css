@@ -51,15 +51,37 @@ body {
     text-shadow: 2px 2px 3px;
 }
 
+.top > div:nth-child(2) {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    margin: 30px;
+}
+
+#new-book {
+    padding: 10px 50px;
+    background-color: #1c9cdb;
+    color: white;
+    font-size: 1rem;
+    border-radius: 10px;
+    font-weight: bold;
+    border: none;
+}
+
+#new-book:hover {
+    cursor: pointer;
+}
+
 .new-book {
     position: fixed;
-    top: 30px;
     text-align: center;
     width: 100%;
 }
 
 .form-popup {
     display: none;
+    position: fixed;
+    right: 30px;
 }
 
 .formContainer {
@@ -110,7 +132,7 @@ body {
 
 .formContainer .btn:hover,
 .openButton:hover {
-    opacity: 1;
+    opacity: .8;
 }
 
 .books-container {
