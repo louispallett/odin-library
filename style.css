@@ -4,6 +4,8 @@
 
 :root {
     --background-gradient: linear-gradient(to right, #1c9cdb, #c0eed3);
+    --button-color: #1c9cdb;
+    --button-hover-opacity: .8;
 }
 
 body {
@@ -60,7 +62,7 @@ body {
 
 #new-book {
     padding: 10px 50px;
-    background-color: #1c9cdb;
+    background-color: var(--button-color);
     color: white;
     font-size: 1rem;
     border-radius: 10px;
@@ -132,7 +134,7 @@ body {
 
 .formContainer .btn:hover,
 .openButton:hover {
-    opacity: .8;
+    opacity: var(--button-hover-opacity);
 }
 
 .books-container {
@@ -151,11 +153,33 @@ body {
     margin: 30px;
 }
 
-.books-container-inner > div {
+.new-book-container {
     border: 1px solid black;
-    display: flex;
-    justify-content: flex-start;
+    display: grid;
+    justify-content: center;
     align-items: center;
-    padding: 10px;
+    grid-template-columns: 3fr 1fr;
     background-color: white;
+    padding: 10px;
+}
+
+.new-book-container > div:nth-child(2) {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.remove-button {
+    background-color: var(--button-color);
+    padding: 8px 15px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    
+}
+
+.remove-button:hover {
+    opacity: var(--button-hover-opacity);
+    cursor: pointer;
 }

@@ -15,9 +15,18 @@ Book.prototype.addToLibrary = function() {
 
 Book.prototype.pushBook = function() {
     const newBook = myLibrary[myLibrary.length - 1];
+    const newBookContainer = document.createElement("div");
+    newBookContainer.classList.add("new-book-container");
     const newBookElement = document.createElement("div");
+    const newBookRight = document.createElement("div");
     newBookElement.textContent = `${newBook.title} by ${newBook.author}`;
-    booksContainer.appendChild(newBookElement);
+    booksContainer.appendChild(newBookContainer);
+    newBookContainer.appendChild(newBookElement);
+    newBookContainer.appendChild(newBookRight);
+    const removeButtonElement = document.createElement("button");
+    removeButtonElement.textContent = "Remove";
+    removeButtonElement.classList.add("remove-button");
+    newBookRight.appendChild(removeButtonElement);
 }
 
 const warAndPeace = new Book ("War and Peace", "Leo Tolstoy");
@@ -56,5 +65,12 @@ submitBookBtn.addEventListener("click", () => {
 })
 
 Book.prototype.removeBook = function() {
-    //Function to remove book (via 'Remove' button)
+
 }
+
+const removeBookBtn = document.querySelector(".remove-button");
+
+removeBookBtn.addEventListener("click", () => {
+    myLibrary.splice(myLibrary[this], 1);
+    console.log(myLibrary);
+})
