@@ -54,3 +54,7 @@ submitBookBtn.addEventListener("click", () => {
     addNewBook(newTitle, newAuthor);
     closeForm();
 })
+
+Book.prototype.removeBook = function() {
+    //Function to remove book (via 'Remove' button)
+}
