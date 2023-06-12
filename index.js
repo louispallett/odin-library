@@ -14,12 +14,10 @@ Book.prototype.addToLibrary = function() {
 }
 
 Book.prototype.pushBook = function() {
-    myLibrary.forEach(function(book) {
-    const booksContainer = document.querySelector(".books-container-inner");
-    const newBook = document.createElement("div");
-    newBook.textContent = `${book.title} by ${book.author}`;
-    booksContainer.appendChild(newBook);
-    });
+    const newBook = myLibrary[myLibrary.length - 1];
+    const newBookElement = document.createElement("div");
+    newBookElement.textContent = `${newBook.title} by ${newBook.author}`;
+    booksContainer.appendChild(newBookElement);
 }
 
 const warAndPeace = new Book ("War and Peace", "Leo Tolstoy");
