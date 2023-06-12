@@ -13,11 +13,13 @@ Book.prototype.addToLibrary = function() {
     myLibrary.push(this);
 }
 
-
 Book.prototype.pushBook = function() {
-    let newBook = document.createElement("div");
-    newBook.textContent = `${this.title} by ${this.author}`;
+    myLibrary.forEach(function(book) {
+    const booksContainer = document.querySelector(".books-container-inner");
+    const newBook = document.createElement("div");
+    newBook.textContent = `${book.title} by ${book.author}`;
     booksContainer.appendChild(newBook);
+    });
 }
 
 const warAndPeace = new Book ("War and Peace", "Leo Tolstoy");
