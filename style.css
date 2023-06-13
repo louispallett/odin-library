@@ -3,7 +3,7 @@
 }
 
 :root {
-    --background-gradient: linear-gradient(to right, #1c9cdb, #c0eed3);
+    --background-gradient: linear-gradient(to right, #48b170, #6aecf5);
     --button-color: #1c9cdb;
     --button-hover-opacity: .8;
 }
@@ -29,7 +29,6 @@ body {
 .left-top > div {
     background-color: white;
     border-radius: 10px;
-    /* border: 3px solid rgb(28, 236, 28); */
     display: flex;
     padding: 20px;
 }
@@ -154,36 +153,45 @@ body {
 }
 
 .new-book-container {
-    border: 1px solid black;
     display: grid;
     align-items: center;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 5fr 2fr;
     background-color: white;
     padding: 10px;
+    border-radius: 5px;
 }
 
 .new-book-container > div:nth-child(1) {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.new-book-container > div:first-child > div:nth-child(2) {
+    font-weight: bold;
 }
 
 .new-book-container > div:nth-child(2) {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
+    gap: 10px;
     align-items: center;
 }
 
-.remove-button {
+.read-status, 
+.remove-button  {
     background-color: var(--button-color);
     padding: 8px 15px;
     color: white;
     font-weight: bold;
-    border: none;
     border-radius: 5px;
+    border: none;
 }
 
-.remove-button:hover {
+.remove-button:hover,
+.read-status:hover {
     opacity: var(--button-hover-opacity);
     cursor: pointer;
 }

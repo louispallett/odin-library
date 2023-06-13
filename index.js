@@ -1,9 +1,11 @@
 const booksContainer = document.querySelector(".books-container-inner");
 let myLibrary = [];
 
-function Book(title, author) {
+function Book(title, author, pages, readStatus) {
     this.title = title;
     this.author = author;
+    this.pages = pages;
+    this.readStatus = readStatus;
 
     this.addToLibrary();
     this.pushBook();
@@ -20,25 +22,36 @@ Book.prototype.pushBook = function() {
         const newBookContainer = document.createElement("div");
         newBookContainer.classList.add("new-book-container");
 
-        newBookContainer.innerHTML = 
+        /* newBookContainer.innerHTML = 
             `<div>${book.title} by ${book.author}</div>
             <div>
                 <label for="read-status${i}">Read?</label>
                 <input type="checkbox" id="read-status${i}">
                 <button class="remove-button" onclick="removeBook(${i})">Remove</button>
-            </div>`;
+            </div>`; */
+
+        newBookContainer.innerHTML = 
+        `<div>
+            <div><i>${book.title}</i> &nbsp;by ${book.author}</div>
+            <div>${book.pages} pages</div>
+        </div>
+        <div>
+            <button class="read-status" onclick="readStatus()">${book.readStatus}</button>
+            <button class="remove-button" onclick="removeBook(${i})">Remove</button>
+        </div>`;
         booksContainer.appendChild(newBookContainer);
     }
 }
 
-const warAndPeace = new Book ("War and Peace", "Leo Tolstoy");
-const dune = new Book ("Dune", "Frank Herbert");
-const theAeneid = new Book("The Aeneid", "Virgil");
-const harryPotter = new Book("Harry Potter and the Goblet of Fire", "J.K. Rowling");
-const canterburyTales = new Book("The Canterbury Tales", "Chaucer");
-const byzantineState = new Book("The History of the Byzantine State", "George Ostrogrosky");
-const paradiseLost = new Book("Paradise Lost", "John Milton");
+const warAndPeace = new Book ("War and Peace", "Leo Tolstoy", 956, "Read");
+const dune = new Book ("Dune", "Frank Herbert", 844, "Read");
+const theAeneid = new Book("The Aeneid", "Virgil", 321, "Not Read");
+const harryPotter = new Book("Harry Potter and the Goblet of Fire", "J.K. Rowling", 561, "Read");
+const canterburyTales = new Book("The Canterbury Tales", "Chaucer", 368, "Read");
+const byzantineState = new Book("The History of the Byzantine State", "George Ostrogrosky", 697, "Not Read");
+const paradiseLost = new Book("Paradise Lost", "John Milton", 289, "Read");
 
+//Need to add pages and read status here (parameters)
 function addNewBook(title, author) {
     const userNewBook = new Book(title, author);
 }
@@ -47,6 +60,7 @@ function openForm() {
     document.getElementById("popupForm").style.display = "block";
     newAuthorText.value = "";
     newTitleText.value = "";
+    //Pages and read status values here too
 }
 
 function closeForm() {
@@ -60,6 +74,7 @@ const newTitleText = document.querySelector("#title");
 submitBookBtn.addEventListener("click", () => {
     const newAuthor = newAuthorText.value;
     const newTitle = newTitleText.value;
+    //Pages and read status values here too
     addNewBook(newTitle, newAuthor);
     closeForm();
 })
