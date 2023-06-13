@@ -19,16 +19,13 @@ Book.prototype.pushBook = function() {
         const book = myLibrary[i];
         const newBookContainer = document.createElement("div");
         newBookContainer.classList.add("new-book-container");
-        const newBookElement = document.createElement("div");
-        const newBookRight = document.createElement("div");
-        newBookElement.textContent = `${book.title} by ${book.author}`;
+
+        newBookContainer.innerHTML = 
+            `<div>${book.title} by ${book.author}</div>
+            <div>
+                <button class="remove-button" onclick="removeBook(${i})">Remove</button>
+            </div>`;
         booksContainer.appendChild(newBookContainer);
-        newBookContainer.appendChild(newBookElement);
-        newBookContainer.appendChild(newBookRight);
-        const removeButtonElement = document.createElement("button");
-        removeButtonElement.textContent = "Remove";
-        removeButtonElement.classList.add("remove-button");
-        newBookRight.appendChild(removeButtonElement);
     }
 }
 
@@ -43,8 +40,6 @@ const paradiseLost = new Book("Paradise Lost", "John Milton");
 function addNewBook(title, author) {
     const userNewBook = new Book(title, author);
 }
-
-//Next need to create pop up form - see here on how to do so: https://www.w3docs.com/snippets/javascript/how-to-create-a-popup-form-using-javascript.html
 
 function openForm() {
     document.getElementById("popupForm").style.display = "block";
@@ -67,13 +62,8 @@ submitBookBtn.addEventListener("click", () => {
     closeForm();
 })
 
-Book.prototype.removeBook = function() {
-
-}
-
-const removeBookBtn = document.querySelector(".remove-button");
-
-removeBookBtn.addEventListener("click", () => {
-    myLibrary.splice(myLibrary[this], 1);
+function removeBook(i) {
+    myLibrary.splice(i, 1);
+    Book.prototype.pushBook();
     console.log(myLibrary);
-})
+}
