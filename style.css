@@ -156,16 +156,21 @@ body {
 .new-book-container {
     border: 1px solid black;
     display: grid;
-    justify-content: center;
     align-items: center;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 2fr 1fr;
     background-color: white;
     padding: 10px;
 }
 
+.new-book-container > div:nth-child(1) {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 .new-book-container > div:nth-child(2) {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
     align-items: center;
 }
 

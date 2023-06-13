@@ -23,6 +23,8 @@ Book.prototype.pushBook = function() {
         newBookContainer.innerHTML = 
             `<div>${book.title} by ${book.author}</div>
             <div>
+                <label for="read-status${i}">Read?</label>
+                <input type="checkbox" id="read-status${i}">
                 <button class="remove-button" onclick="removeBook(${i})">Remove</button>
             </div>`;
         booksContainer.appendChild(newBookContainer);
