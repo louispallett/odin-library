@@ -14,19 +14,22 @@ Book.prototype.addToLibrary = function() {
 }
 
 Book.prototype.pushBook = function() {
-    const newBook = myLibrary[myLibrary.length - 1];
-    const newBookContainer = document.createElement("div");
-    newBookContainer.classList.add("new-book-container");
-    const newBookElement = document.createElement("div");
-    const newBookRight = document.createElement("div");
-    newBookElement.textContent = `${newBook.title} by ${newBook.author}`;
-    booksContainer.appendChild(newBookContainer);
-    newBookContainer.appendChild(newBookElement);
-    newBookContainer.appendChild(newBookRight);
-    const removeButtonElement = document.createElement("button");
-    removeButtonElement.textContent = "Remove";
-    removeButtonElement.classList.add("remove-button");
-    newBookRight.appendChild(removeButtonElement);
+    booksContainer.innerHTML = "";
+    for(let i = 0; i < myLibrary.length; i++) {
+        const book = myLibrary[i];
+        const newBookContainer = document.createElement("div");
+        newBookContainer.classList.add("new-book-container");
+        const newBookElement = document.createElement("div");
+        const newBookRight = document.createElement("div");
+        newBookElement.textContent = `${book.title} by ${book.author}`;
+        booksContainer.appendChild(newBookContainer);
+        newBookContainer.appendChild(newBookElement);
+        newBookContainer.appendChild(newBookRight);
+        const removeButtonElement = document.createElement("button");
+        removeButtonElement.textContent = "Remove";
+        removeButtonElement.classList.add("remove-button");
+        newBookRight.appendChild(removeButtonElement);
+    }
 }
 
 const warAndPeace = new Book ("War and Peace", "Leo Tolstoy");
