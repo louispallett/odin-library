@@ -3,7 +3,7 @@ const submitBookBtn = document.querySelector("#add-new-book");
 const newAuthorText = document.querySelector("#author");
 const newTitleText = document.querySelector("#title");
 const newPagesText = document.querySelector("#pages");
-const newReadStatusText = document.querySelector("#read-status");
+const newReadStatusValue = document.querySelector("#read-status");
 let myLibrary = [];
 
 function Book(title, author, pages, readStatus) {
@@ -65,8 +65,8 @@ function openForm() {
     document.getElementById("popupForm").style.display = "block";
     newAuthorText.value = "";
     newTitleText.value = "";
-    newPagesText.value = "";
-    newReadStatusText.value = "";
+    newPagesText.value = ""; 
+    newReadStatusValue.checked == false;
 }
 
 function closeForm() {
@@ -77,7 +77,12 @@ submitBookBtn.addEventListener("click", () => {
     const newAuthor = newAuthorText.value;
     const newTitle = newTitleText.value;
     const newPages = newPagesText.value;
-    const newReadStatus = newReadStatusText.value;
+    if (newReadStatusValue.checked == true) {
+        newReadStatus = "Read";
+    } else {
+        newReadStatus = "Not Read";
+    }
+    
     addNewBook(newTitle, newAuthor, newPages, newReadStatus);
     closeForm();
 })
