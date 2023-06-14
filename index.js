@@ -3,7 +3,8 @@ const submitBookBtn = document.querySelector("#add-new-book");
 const newAuthorText = document.querySelector("#author");
 const newTitleText = document.querySelector("#title");
 const newPagesText = document.querySelector("#pages");
-const newReadStatusValue = document.querySelector("#read-status");
+const newReadStatusValue = document.getElementById("read-status");
+
 let myLibrary = [];
 
 function Book(title, author, pages, readStatus) {
@@ -27,21 +28,13 @@ Book.prototype.pushBook = function() {
         const newBookContainer = document.createElement("div");
         newBookContainer.classList.add("new-book-container");
 
-        /* newBookContainer.innerHTML = 
-            `<div>${book.title} by ${book.author}</div>
-            <div>
-                <label for="read-status${i}">Read?</label>
-                <input type="checkbox" id="read-status${i}">
-                <button class="remove-button" onclick="removeBook(${i})">Remove</button>
-            </div>`; */
-
         newBookContainer.innerHTML = 
         `<div>
             <div><i>${book.title}</i> &nbsp;by ${book.author}</div>
             <div>${book.pages} pages</div>
         </div>
         <div>
-            <button class="read-status" onclick="readStatus()">${book.readStatus}</button>
+            <button class="read-status" onclick="readStatus(${i})">${book.readStatus}</button>
             <button class="remove-button" onclick="removeBook(${i})">Remove</button>
         </div>`;
         booksContainer.appendChild(newBookContainer);
@@ -66,7 +59,6 @@ function openForm() {
     newAuthorText.value = "";
     newTitleText.value = "";
     newPagesText.value = ""; 
-    newReadStatusValue.checked == false;
 }
 
 function closeForm() {
@@ -77,11 +69,14 @@ submitBookBtn.addEventListener("click", () => {
     const newAuthor = newAuthorText.value;
     const newTitle = newTitleText.value;
     const newPages = newPagesText.value;
-    if (newReadStatusValue.checked == true) {
-        newReadStatus = "Read";
-    } else {
-        newReadStatus = "Not Read";
-    }
+    let readValue = newReadStatusValue.value;
+    let readText = newReadStatusValue.options[newReadStatusValue.selectedIndex].text;
+
+    newReadStatus = readText;
+
+    console.log(readValue);
+    console.log(readText);
+
     
     addNewBook(newTitle, newAuthor, newPages, newReadStatus);
     closeForm();
@@ -92,3 +87,7 @@ function removeBook(i) {
     Book.prototype.pushBook();
     console.log(myLibrary);
 }
+
+/* function readStatus(i) {
+    console.log(i.newReadStatusValue);
+} */

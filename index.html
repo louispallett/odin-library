@@ -36,9 +36,10 @@
                                 <input type="number" id="pages" placeholder="Number of Pages">
                             </div>
                             <div>
-                                <!-- Change this to a drop down -->
-                                <label for="read-status">Have you read the book?</label>
-                                <input type="checkbox" id="read-status">
+                                <select id="read-status" name="read-status">
+                                    <option value="not-read">Not Read</option>
+                                    <option value="read">Read</option>
+                                </select>
                             </div>
                             <button type="submit" class="btn" id="add-new-book">Add Book</button>
                             <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
