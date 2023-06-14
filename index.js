@@ -1,4 +1,9 @@
 const booksContainer = document.querySelector(".books-container-inner");
+const submitBookBtn = document.querySelector("#add-new-book");
+const newAuthorText = document.querySelector("#author");
+const newTitleText = document.querySelector("#title");
+const newPagesText = document.querySelector("#pages");
+const newReadStatusText = document.querySelector("#read-status");
 let myLibrary = [];
 
 function Book(title, author, pages, readStatus) {
@@ -52,30 +57,28 @@ const byzantineState = new Book("The History of the Byzantine State", "George Os
 const paradiseLost = new Book("Paradise Lost", "John Milton", 289, "Read");
 
 //Need to add pages and read status here (parameters)
-function addNewBook(title, author) {
-    const userNewBook = new Book(title, author);
+function addNewBook(title, author, pages, readStatus) {
+    const userNewBook = new Book(title, author, pages, readStatus);
 }
 
 function openForm() {
     document.getElementById("popupForm").style.display = "block";
     newAuthorText.value = "";
     newTitleText.value = "";
-    //Pages and read status values here too
+    newPagesText.value = "";
+    newReadStatusText.value = "";
 }
 
 function closeForm() {
     document.getElementById("popupForm").style.display = "none";
 }
 
-const submitBookBtn = document.querySelector("#add-new-book");
-const newAuthorText = document.querySelector("#author");
-const newTitleText = document.querySelector("#title");
-
 submitBookBtn.addEventListener("click", () => {
     const newAuthor = newAuthorText.value;
     const newTitle = newTitleText.value;
-    //Pages and read status values here too
-    addNewBook(newTitle, newAuthor);
+    const newPages = newPagesText.value;
+    const newReadStatus = newReadStatusText.value;
+    addNewBook(newTitle, newAuthor, newPages, newReadStatus);
     closeForm();
 })
 

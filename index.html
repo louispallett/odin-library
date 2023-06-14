@@ -27,16 +27,17 @@
                         <form action="#" class="formContainer">
                             <div>Add a new book</div>
                             <div>
-                                <div>
-                                    <label for="title">Title</label>
-                                </div>
-                                <input type="text" id="title" required placeholder="Treasure Island">
+                                <input type="text" id="title" required placeholder="Book title">
                             </div>
                             <div>
-                                <div>
-                                    <label for="author">Author</label>
-                                </div>
-                                <input type="text" id="author" required placeholder="Robert L. Stevenson">
+                                <input type="text" id="author" required placeholder="Author(s)">
+                            </div>
+                            <div>
+                                <input type="number" id="pages" placeholder="Number of Pages">
+                            </div>
+                            <div>
+                                <input type="checkbox" id="read-status" placeholder="Read Status">
+                            </input>
                             </div>
                             <button type="submit" class="btn" id="add-new-book">Add Book</button>
                             <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
