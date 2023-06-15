@@ -4,7 +4,6 @@ const newAuthorText = document.querySelector("#author");
 const newTitleText = document.querySelector("#title");
 const newPagesText = document.querySelector("#pages");
 const newReadStatusValue = document.getElementById("read-status");
-const newBookContainer = document.createElement("div");
 
 let myLibrary = [];
 
@@ -50,7 +49,6 @@ const canterburyTales = new Book("The Canterbury Tales", "Chaucer", 368, "Read")
 const byzantineState = new Book("The History of the Byzantine State", "George Ostrogrosky", 697, "Not Read");
 const paradiseLost = new Book("Paradise Lost", "John Milton", 289, "Read");
 
-//Need to add pages and read status here (parameters)
 function addNewBook(title, author, pages, readStatus) {
     const userNewBook = new Book(title, author, pages, readStatus);
 }
@@ -66,7 +64,9 @@ function closeForm() {
     document.getElementById("popupForm").style.display = "none";
 }
 
-submitBookBtn.addEventListener("click", () => {
+submitBookBtn.addEventListener("click", (event) => {
+    event.preventDefault(); //prevents form from attempting to submit and reload the URL. Without this, the first instance you submit a book will disappear
+
     const newAuthor = newAuthorText.value;
     const newTitle = newTitleText.value;
     const newPages = newPagesText.value;
@@ -74,10 +74,6 @@ submitBookBtn.addEventListener("click", () => {
     let readText = newReadStatusValue.options[newReadStatusValue.selectedIndex].text;
 
     newReadStatus = readText;
-
-    console.log(readValue);
-    console.log(readText);
-
     
     addNewBook(newTitle, newAuthor, newPages, newReadStatus);
     closeForm();
