@@ -35,7 +35,7 @@ Book.prototype.pushBook = function() {
             <div>${book.pages} pages</div>
         </div>
         <div>
-            <button class="read-status" onclick="readStatus(${i})">${book.readStatus}</button>
+            <button class="read-status" onclick="readStatus(${i}, this)">${book.readStatus}</button>
             <button class="remove-button" onclick="removeBook(${i})">Remove</button>
         </div>`;
         booksContainer.appendChild(newBookContainer);
@@ -89,9 +89,8 @@ function removeBook(i) {
     console.log(myLibrary);
 }
 
-function readStatus(i) {
+function readStatus(i, button) {
     const book = myLibrary[i];
-    let readButton = document.querySelector(".read-status");
     if(book.readStatus === "Read") {
         book.readStatus = "Not Read";
         console.log(book.readStatus);
@@ -99,7 +98,5 @@ function readStatus(i) {
         book.readStatus = "Read";
         console.log(book.readStatus);
     }
-    book.readButton.textContent = book.readStatus;
-    /* newBookContainer.appendChild(document.querySelector(".read-status")); */
-    /* console.log(book.readStatus); */
+    button.textContent = book.readStatus;
 }
