@@ -4,6 +4,7 @@ const newAuthorText = document.querySelector("#author");
 const newTitleText = document.querySelector("#title");
 const newPagesText = document.querySelector("#pages");
 const newReadStatusValue = document.getElementById("read-status");
+const newBookContainer = document.createElement("div");
 
 let myLibrary = [];
 
@@ -41,7 +42,7 @@ Book.prototype.pushBook = function() {
     }
 }
 
-const warAndPeace = new Book ("War and Peace", "Leo Tolstoy", 956, "Read");
+const warAndPeace = new Book ("War and Peace", "Leo Tolstoy", 956, "Not Read");
 const dune = new Book ("Dune", "Frank Herbert", 844, "Read");
 const theAeneid = new Book("The Aeneid", "Virgil", 321, "Not Read");
 const harryPotter = new Book("Harry Potter and the Goblet of Fire", "J.K. Rowling", 561, "Read");
@@ -88,6 +89,17 @@ function removeBook(i) {
     console.log(myLibrary);
 }
 
-/* function readStatus(i) {
-    console.log(i.newReadStatusValue);
-} */
+function readStatus(i) {
+    const book = myLibrary[i];
+    let readButton = document.querySelector(".read-status");
+    if(book.readStatus === "Read") {
+        book.readStatus = "Not Read";
+        console.log(book.readStatus);
+    } else {
+        book.readStatus = "Read";
+        console.log(book.readStatus);
+    }
+    book.readButton.textContent = book.readStatus;
+    /* newBookContainer.appendChild(document.querySelector(".read-status")); */
+    /* console.log(book.readStatus); */
+}
