@@ -19,33 +19,29 @@
                 <div>Odin Library</div>
             </div>
             <div>
-                <div class="openBtn">
-                    <button class="openButton" id="new-book" onclick="openForm()">New Book</button>
-                </div>
-                <div class="new-book" id="pop-up">
-                    <div class="form-popup" id="popupForm">
-                        <form action="#" class="formContainer">
-                            <div>Add a new book</div>
-                            <div>
-                                <input type="text" id="title" required placeholder="Book title">
-                            </div>
-                            <div>
-                                <input type="text" id="author" required placeholder="Author(s)">
-                            </div>
-                            <div>
-                                <input type="number" id="pages" placeholder="Number of Pages">
-                            </div>
-                            <div>
-                                <select id="read-status" name="read-status">
-                                    <option value="not-read">Not Read</option>
-                                    <option value="read">Read</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="btn" id="add-new-book">Add Book</button>
-                            <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
-                        </form>
+            <dialog id="newBook">
+                <form action="" class="formContainer">
+                    <div>Add a new book</div>
+                    <div>
+                        <input type="text" id="title">
                     </div>
-                </div>
+                    <div>
+                        <input type="text" id="author">
+                    </div>
+                    <div>
+                        <input type="text" id="pages">
+                    </div>
+                    <div>
+                        <select name="" id="read-status">
+                            <option value="">Not Read</option>
+                            <option value="">Read</option>
+                        </select>
+                        <button class="btn" id="add-new-book">Add Book</button>
+                        <button class="btn cancel">Cancel</button>
+                    </div>
+                </form>
+            </dialog>
+<button onclick="newBook.showModal()">Show Form</button>
             </div>
         </div>
         <div class="books-container">

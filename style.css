@@ -73,18 +73,6 @@ body {
     cursor: pointer;
 }
 
-.new-book {
-    position: fixed;
-    text-align: center;
-    width: 100%;
-}
-
-.form-popup {
-    display: none;
-    position: fixed;
-    right: 30px;
-}
-
 .formContainer {
     max-width: 500px;
     padding: 20px;

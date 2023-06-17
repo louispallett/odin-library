@@ -53,12 +53,12 @@ function addNewBook(title, author, pages, readStatus) {
     const userNewBook = new Book(title, author, pages, readStatus);
 }
 
-function openForm() {
+/* function openForm() {
     document.getElementById("popupForm").style.display = "block";
     newAuthorText.value = "";
     newTitleText.value = "";
     newPagesText.value = ""; 
-}
+} */
 
 function closeForm() {
     document.getElementById("popupForm").style.display = "none";
