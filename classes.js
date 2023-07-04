@@ -1,0 +1,94 @@
+const booksContainer = document.querySelector(".books-container-inner");
+const submitBookBtn = document.querySelector("#add-new-book");
+const newAuthorText = document.querySelector("#author");
+const newTitleText = document.querySelector("#title");
+const newPagesText = document.querySelector("#pages");
+const newReadStatusValue = document.getElementById("read-status");
+
+let myLibrary = [];
+
+class Book {
+    constructor(title, author, pages, readStatus) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.readStatus = readStatus;
+
+        this.addToLibrary();
+        this.pushBook();
+    }
+
+    addToLibrary = () => {
+        myLibrary.push(this);
+    }
+
+    pushBook = () => {
+        booksContainer.innerHTML = "";
+        for(let i = 0; i < myLibrary.length; i++) {
+            const book = myLibrary[i];
+            const newBookContainer = document.createElement("div");
+            newBookContainer.classList.add("new-book-container");
+
+            newBookContainer.innerHTML = 
+            `<div>
+                <div><i>${book.title}</i> &nbsp;by ${book.author}</div>
+                <div>${book.pages} pages</div>
+            </div>
+            <div>
+                <button class="read-status" onclick="readStatus(${i}, this)">${book.readStatus}</button>
+                <button class="remove-button" onclick="removeBook(${i})">Remove</button>
+            </div>`;
+            booksContainer.appendChild(newBookContainer);
+        }
+    }
+}
+
+const warAndPeace = new Book ("War and Peace", "Leo Tolstoy", 956, "Not Read");
+
+function addNewBook(title, author, pages, readStatus) {
+    const userNewBook = new Book(title, author, pages, readStatus);
+}
+
+function openForm() {
+    document.getElementById("popupForm").style.display = "block";
+    newAuthorText.value = "";
+    newTitleText.value = "";
+    newPagesText.value = ""; 
+}
+
+function closeForm() {
+    document.getElementById("popupForm").style.display = "none";
+}
+
+submitBookBtn.addEventListener("click", (event) => {
+    event.preventDefault(); //prevents form from attempting to submit and reload the URL. Without this, the first instance you submit a book will disappear
+
+    const newAuthor = newAuthorText.value;
+    const newTitle = newTitleText.value;
+    const newPages = newPagesText.value;
+    let readValue = newReadStatusValue.value;
+    let readText = newReadStatusValue.options[newReadStatusValue.selectedIndex].text;
+
+    newReadStatus = readText;
+    
+    addNewBook(newTitle, newAuthor, newPages, newReadStatus);
+    closeForm();
+})
+
+function removeBook(i) {
+    myLibrary.splice(i, 1);
+    Book.prototype.pushBook();
+    console.log(myLibrary);
+}
+
+function readStatus(i, button) {
+    const book = myLibrary[i];
+    if(book.readStatus === "Read") {
+        book.readStatus = "Not Read";
+        console.log(book.readStatus);
+    } else {
+        book.readStatus = "Read";
+        console.log(book.readStatus);
+    }
+    button.textContent = book.readStatus;
+}
